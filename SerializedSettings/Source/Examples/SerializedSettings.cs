@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------------
-// <copyright file="Example.cs" company="Codev Software, LLC">
-// Copyright © 2019
+// <copyright file="SerializedSettings.cs" company="Codev Software, LLC">
+// Copyright © 2020
 // </copyright>
 //-----------------------------------------------------------------------------
 namespace SerializedSettings.Source
@@ -12,28 +12,32 @@ namespace SerializedSettings.Source
 
     ///--------------------------------------------------------------------
     /// <summary>
-    /// This is the class that performs persistence settings.
+    /// This is the class that will provide serialized settings to a file
+    /// for application persistence.
     /// </summary>
     ///--------------------------------------------------------------------
-    public class Example
+    public class SerializedSettings
     {
         #region Constants
         ///--------------------------------------------------------------------
         /// <summary>
-        /// This represents the name of the file that will reside in the 
-        /// application directory.
+        /// This represents the name of the file to contain the settings
+        /// information.
         /// </summary>
         ///--------------------------------------------------------------------
-        private const String SettingFileName = "Setting.json";
+        private const String SettingFileName = "Settings.json";
         #endregion
 
         #region Constructors
         ///--------------------------------------------------------------------
         /// <summary>
-        /// Instantiate the settings object.
+        /// Instantiate the object.  Make sure that any reference properties
+        /// are properly initialized (avoid null references).  The application 
+        /// name is used as the directory name off of a root so that it can
+        /// isolate from other applications.
         /// </summary>
         ///--------------------------------------------------------------------
-        public Example(
+        public SerializedSettings(
             String applicationName)
         {
             this.ApplicationName = applicationName;
@@ -53,7 +57,7 @@ namespace SerializedSettings.Source
 
         ///--------------------------------------------------------------------
         /// <summary>
-        /// Get or set the settings.
+        /// Get or set the settings for the application.
         /// </summary>
         ///--------------------------------------------------------------------
         public Settings Settings { get; set; }
@@ -62,21 +66,21 @@ namespace SerializedSettings.Source
         #region Methods
         ///--------------------------------------------------------------------
         /// <summary>
-        /// Save the settings to file.
+        /// Persist the settings to file.
         /// </summary>
         ///--------------------------------------------------------------------
         public void Save()
         {
             String contents = JsonConvert.SerializeObject(this.Settings);
 
-            String fileName = this.GetFile();
+            String fileName = this.GetFileName();
 
             File.WriteAllText(fileName, contents, Encoding.UTF8);
         }
 
         ///--------------------------------------------------------------------
         /// <summary>
-        /// Relaod the settings file.
+        /// Relaod the settings from the file.
         /// </summary>
         ///--------------------------------------------------------------------
         public void Reload()
@@ -93,9 +97,7 @@ namespace SerializedSettings.Source
         ///--------------------------------------------------------------------
         private void InitializeSettings()
         {
-            String directory = this.GetDirectory();
-
-            String fileName = this.GetFile();
+            String fileName = this.GetFileName();
 
             if (File.Exists(fileName))
             {
@@ -116,9 +118,9 @@ namespace SerializedSettings.Source
         /// Return the absolute filename for the settings file.
         /// </summary>
         ///--------------------------------------------------------------------
-        private String GetFile()
+        private String GetFileName()
         {
-            String directory = this.GetDirectory();
+            String directory = this.GetApplicationDirectory();
 
             return Path.Combine(directory, SettingFileName);
         }
@@ -128,7 +130,7 @@ namespace SerializedSettings.Source
         /// Return the diretory where the settings file resides.
         /// </summary>
         ///--------------------------------------------------------------------
-        private String GetDirectory()
+        private String GetApplicationDirectory()
         {
             String myDocFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
