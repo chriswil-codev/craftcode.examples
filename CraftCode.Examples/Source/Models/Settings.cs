@@ -6,6 +6,7 @@
 namespace CraftCode.Examples
 {
     using System;
+    using System.Collections.Generic;
 
     ///--------------------------------------------------------------------
     /// <summary>
@@ -22,7 +23,8 @@ namespace CraftCode.Examples
         ///--------------------------------------------------------------------
         public Settings()
         {
-            this.ComplexValue = new ComplexValue();
+            this.ComplexValue    = new ComplexValue();
+            this.DictionaryValue = new Dictionary<String, Int32>();
         }
         #endregion
 
@@ -40,6 +42,13 @@ namespace CraftCode.Examples
         /// </summary>
         ///--------------------------------------------------------------------
         public Int32 IntegerValue { get; set; }
+
+        ///--------------------------------------------------------------------
+        /// <summary>
+        /// Get or set the the complex value.
+        /// </summary>
+        ///--------------------------------------------------------------------
+        public Dictionary<String, Int32> DictionaryValue { get; set; }
 
         ///--------------------------------------------------------------------
         /// <summary>

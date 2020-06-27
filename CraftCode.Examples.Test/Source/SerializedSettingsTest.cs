@@ -71,6 +71,7 @@ namespace CraftCode.Examples.Test
             Debug.Assert(String.IsNullOrWhiteSpace(example.Settings.StringValue));
             Debug.Assert(example.Settings.IntegerValue == 0);
             Debug.Assert(example.Settings.ComplexValue.Items.Count == 0);
+            Debug.Assert(example.Settings.DictionaryValue.Count == 0);
         }
 
         ///--------------------------------------------------------------------
@@ -95,8 +96,13 @@ namespace CraftCode.Examples.Test
 
             Debug.Assert(example.Settings.StringValue  == "Test");
             Debug.Assert(example.Settings.IntegerValue == 42);
+
             Debug.Assert(example.Settings.ComplexValue.Items[0] == "Item 1");
             Debug.Assert(example.Settings.ComplexValue.Items[1] == "Item 2");
+
+            Debug.Assert(example.Settings.DictionaryValue["A"] == 0);
+            Debug.Assert(example.Settings.DictionaryValue["B"] == 1);
+            Debug.Assert(example.Settings.DictionaryValue["C"] == 2);
         }
 
         ///--------------------------------------------------------------------
@@ -125,8 +131,13 @@ namespace CraftCode.Examples.Test
 
             Debug.Assert(example.Settings.StringValue  == "Test");
             Debug.Assert(example.Settings.IntegerValue == 42);
+
             Debug.Assert(example.Settings.ComplexValue.Items[0] == "Item 1");
             Debug.Assert(example.Settings.ComplexValue.Items[1] == "Item 2");
+
+            Debug.Assert(example.Settings.DictionaryValue["A"] == 0);
+            Debug.Assert(example.Settings.DictionaryValue["B"] == 1);
+            Debug.Assert(example.Settings.DictionaryValue["C"] == 2);
         }
         #endregion
 
@@ -183,6 +194,10 @@ namespace CraftCode.Examples.Test
             example.Settings.IntegerValue = 42;
             example.Settings.ComplexValue.Items.Add("Item 1");
             example.Settings.ComplexValue.Items.Add("Item 2");
+
+            example.Settings.DictionaryValue.Add("A", 0);
+            example.Settings.DictionaryValue.Add("B", 1);
+            example.Settings.DictionaryValue.Add("C", 2);
 
             example.Save();
         }
