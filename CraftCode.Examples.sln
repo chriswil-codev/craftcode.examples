@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializedSettings", "SerializedSettings\SerializedSettings.csproj", "{3400F0A7-E52C-4C1C-BAD7-F6739F469550}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftCode.Examples.Test", "CraftCode.Examples.Test\CraftCode.Examples.Test.csproj", "{96B62775-1932-4ADE-A8D3-28886665A8D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftCode.Examples", "CraftCode.Examples\CraftCode.Examples.csproj", "{F297D963-1C47-4238-9AFC-D950473975C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3400F0A7-E52C-4C1C-BAD7-F6739F469550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3400F0A7-E52C-4C1C-BAD7-F6739F469550}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3400F0A7-E52C-4C1C-BAD7-F6739F469550}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3400F0A7-E52C-4C1C-BAD7-F6739F469550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96B62775-1932-4ADE-A8D3-28886665A8D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B62775-1932-4ADE-A8D3-28886665A8D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B62775-1932-4ADE-A8D3-28886665A8D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96B62775-1932-4ADE-A8D3-28886665A8D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F297D963-1C47-4238-9AFC-D950473975C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F297D963-1C47-4238-9AFC-D950473975C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F297D963-1C47-4238-9AFC-D950473975C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F297D963-1C47-4238-9AFC-D950473975C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

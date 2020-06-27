@@ -3,7 +3,7 @@
 // Copyright © 2020
 // </copyright>
 //-----------------------------------------------------------------------------
-namespace SerializedSettings.Source
+namespace CraftCode.Examples
 {
     using System;
     using System.IO;
